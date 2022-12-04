@@ -76,7 +76,7 @@ func DetailSurah(c *fiber.Ctx) error {
 
 	content, err := ioutil.ReadFile(path + "/cache/quran.json")
 	if err != nil {
-		log.Fatal("Error when opening file: ", err)
+		log.Println("Error when opening file: ", err)
 		return c.Status(500).JSON(fiber.Map{
 			"code":    500,
 			"status":  "ERR",
@@ -89,7 +89,7 @@ func DetailSurah(c *fiber.Ctx) error {
 	var payload models.Data
 	err = json.Unmarshal(content, &payload)
 	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
+		log.Println("Error during Unmarshal(): ", err)
 		return c.Status(500).JSON(fiber.Map{
 			"code":    500,
 			"status":  "ERR",
@@ -171,7 +171,7 @@ func Ayat(c *fiber.Ctx) error {
 
 		content, err := ioutil.ReadFile(path + "/cache/quran.json")
 		if err != nil {
-			log.Fatal("Error when opening file: ", err)
+			log.Println("Error when opening file: ", err)
 			return c.Status(500).JSON(fiber.Map{
 				"code":    500,
 				"status":  "ERR",
@@ -184,7 +184,7 @@ func Ayat(c *fiber.Ctx) error {
 		err = json.Unmarshal(content, &payload)
 
 		if err != nil {
-			log.Fatal("Error during Unmarshal(): ", err)
+			log.Println("Error during Unmarshal(): ", err)
 			return c.Status(500).JSON(fiber.Map{
 				"code":    500,
 				"status":  "ERR",
