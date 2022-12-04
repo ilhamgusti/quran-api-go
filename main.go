@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "encoding/json"
 	"quran-api-go/router"
 
 	"github.com/goccy/go-json"
@@ -11,7 +12,7 @@ func main() {
 	// database.ConnectDB()
 
 	var app *fiber.App = fiber.New(fiber.Config{
-		JSONEncoder: json.MarshalNoEscape,
+		JSONEncoder: json.Marshal,
 		JSONDecoder: json.Unmarshal,
 		// DisableStartupMessage:        true,
 		// DisableDefaultDate:           true,
